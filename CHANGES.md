@@ -1,5 +1,9 @@
 # Changelog
 
+## Backported commits, used by peertube-plugin-livechat
+
+- #3300: Adding the maxWait option for `debouncedPruneHistory`
+
 ## 10.1.6 (2023-08-31)
 
 - #3246: Badge color not responsive to dark theme
