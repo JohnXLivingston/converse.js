@@ -3,6 +3,7 @@
 ## Backported commits, used by peertube-plugin-livechat
 
 - #3300: Adding the maxWait option for `debouncedPruneHistory`
+- #3302: debounce MUC sidebar rendering
 
 ## 10.1.6 (2023-08-31)
 
