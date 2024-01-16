@@ -29,6 +29,7 @@ export default class MUCSidebar extends CustomElement {
         this.listenTo(this.model.occupants, 'add', debouncedRequestUpdate);
         this.listenTo(this.model.occupants, 'remove', debouncedRequestUpdate);
         this.listenTo(this.model.occupants, 'change', debouncedRequestUpdate);
+        this.listenTo(this.model.occupants, 'sort', debouncedRequestUpdate);
         this.listenTo(this.model.occupants, 'vcard:change', debouncedRequestUpdate);
         this.listenTo(this.model.occupants, 'vcard:add', debouncedRequestUpdate);
 
