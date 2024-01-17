@@ -5,6 +5,7 @@
 - #3300: Adding the maxWait option for `debouncedPruneHistory`
 - #3302: debounce MUC sidebar rendering
 - Fix: refresh the MUC sidebar when participants collection is sorted
+- Fix: MUC occupant list does not sort itself on nicknames or roles changes
 
 ## 10.1.6 (2023-08-31)
 
