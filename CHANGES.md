@@ -7,6 +7,10 @@
 - Fix: refresh the MUC sidebar when participants collection is sorted
 - Fix: MUC occupant list does not sort itself on nicknames or roles changes
 
+## Other changes used by peertube-plugin-livechat, that will not be barckported.
+
+- Don't load vCards for all room occupants when the right menu is closed
+
 ## 10.1.6 (2023-08-31)
 
 - #3246: Badge color not responsive to dark theme

@@ -80,10 +80,25 @@ converse.plugins.add('converse-vcard', {
             }
         });
 
+        // Code below differs from ConverseJS upstream, and is specific to peertube-plugin-livechat.
+        // We don't load all vCards when right menu is hidden.
         api.listen.on('chatRoomInitialized', (m) => {
             setVCardOnModel(m)
-            m.occupants.forEach(setVCardOnOccupant);
-            m.listenTo(m.occupants, 'add', setVCardOnOccupant);
+            let hidden_occupants = m.get('hidden_occupants')
+            if (hidden_occupants !== true) {
+                m.occupants.forEach(setVCardOnOccupant);
+            }
+            m.listenTo(m.occupants, 'add', (occupant) => {
+                if (hidden_occupants !== true) {
+                    setVCardOnOccupant(occupant)
+                }
+            });
+            m.on('change:hidden_occupants', () => {
+                hidden_occupants = m.get('hidden_occupants')
+                if (hidden_occupants !== true) {
+                    m.occupants.forEach(setVCardOnOccupant);
+                }
+            })
             m.listenTo(m.occupants, 'change:image_hash', o => onOccupantAvatarChanged(o));
         });
 
