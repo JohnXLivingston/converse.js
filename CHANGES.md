@@ -13,7 +13,8 @@
 - Changing the default avatar, for something very light (to mitigate blinking effect when vCards are loaded)
 - Custom settings livechat_load_all_vcards for the readonly mode
 - Adding "users" icon in the menu toggle button
-- Removing unecessary plugins: headless/pubsub, minimize, notifications, profile, omemo, push, roomlist, dragresize.
+- Removing unecessary plugins: headless/pubsub, minimize, notifications, profile, omemo, push, roomlist, dragresize
+- Destroy room: remove the challenge, and the new JID
 
 ## 10.1.6 (2023-08-31)
 

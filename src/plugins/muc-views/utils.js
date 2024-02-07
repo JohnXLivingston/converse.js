@@ -52,29 +52,31 @@ export function clearHistory (jid) {
 
 export async function destroyMUC (model) {
     const messages = [__('Are you sure you want to destroy this groupchat?')];
+    // Note: chanllenge and newjid make no sens for peertube-plugin-livechat
     let fields = [
-        {
-            'name': 'challenge',
-            'label': __('Please enter the XMPP address of this groupchat to confirm'),
-            'challenge': model.get('jid'),
-            'placeholder': __('name@example.org'),
-            'required': true
-        },
+        // {
+        //     'name': 'challenge',
+        //     'label': __('Please enter the XMPP address of this groupchat to confirm'),
+        //     'challenge': model.get('jid'),
+        //     'placeholder': __('name@example.org'),
+        //     'required': true
+        // },
         {
             'name': 'reason',
             'label': __('Optional reason for destroying this groupchat'),
             'placeholder': __('Reason')
         },
-        {
-            'name': 'newjid',
-            'label': __('Optional XMPP address for a new groupchat that replaces this one'),
-            'placeholder': __('replacement@example.org')
-        }
+        // {
+        //     'name': 'newjid',
+        //     'label': __('Optional XMPP address for a new groupchat that replaces this one'),
+        //     'placeholder': __('replacement@example.org')
+        // }
     ];
     try {
         fields = await api.confirm(__('Confirm'), messages, fields);
         const reason = fields.filter(f => f.name === 'reason').pop()?.value;
-        const newjid = fields.filter(f => f.name === 'newjid').pop()?.value;
+        // const newjid = fields.filter(f => f.name === 'newjid').pop()?.value;
+        const newjid = undefined
         return model.sendDestroyIQ(reason, newjid).then(() => model.close());
     } catch (e) {
         log.error(e);
