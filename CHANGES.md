@@ -12,6 +12,7 @@
 - Don't load vCards for all room occupants when the right menu is closed
 - Changing the default avatar, for something very light (to mitigate blinking effect when vCards are loaded)
 - Custom settings livechat_load_all_vcards for the readonly mode
+- Adding "users" icon in the menu toggle button
 
 ## 10.1.6 (2023-08-31)
 

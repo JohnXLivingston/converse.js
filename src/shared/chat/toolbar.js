@@ -82,14 +82,32 @@ export class ChatToolbar extends CustomElement {
         if (this.is_groupchat && api.settings.get('visible_toolbar_buttons')?.toggle_occupants) {
             const i18n_hide_occupants = __('Hide participants');
             const i18n_show_occupants = __('Show participants');
+            const icon = this.hidden_occupants
+                ? html`<converse-icon
+                        color="var(--muc-toolbar-btn-color)"
+                        class="fa fa-angle-double-left"
+                        size="1em">
+                    </converse-icon>
+                    <converse-icon
+                        color="var(--muc-toolbar-btn-color)"
+                        class="fa users"
+                        size="1em">
+                    </converse-icon>`
+                : html`<converse-icon
+                        color="var(--muc-toolbar-btn-color)"
+                        class="fa users"
+                        size="1em">
+                    </converse-icon>
+                    <converse-icon
+                        color="var(--muc-toolbar-btn-color)"
+                        class="fa fa-angle-double-right"
+                        size="1em">
+                    </converse-icon>`;
             buttons.push(html`
                 <button class="toggle_occupants right"
                         title="${this.hidden_occupants ? i18n_show_occupants : i18n_hide_occupants}"
                         @click=${this.toggleOccupants}>
-                    <converse-icon
-                        color="var(--muc-toolbar-btn-color)"
-                        class="fa ${this.hidden_occupants ? `fa-angle-double-left` : `fa-angle-double-right`}"
-                        size="1em"></converse-icon>
+                        ${icon}
                 </button>`
             );
         }
