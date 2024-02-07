@@ -105,4 +105,7 @@ export const DEFAULT_SETTINGS = {
     view_mode: 'overlayed', // Choices are 'overlayed', 'fullscreen', 'mobile'
     websocket_url: undefined,
     whitelisted_plugins: [],
+
+    // This settings is specific to peertube-plugin-livechat to force avatars loading in readonly mode.
+    livechat_load_all_vcards: false
 };

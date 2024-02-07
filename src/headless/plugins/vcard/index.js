@@ -84,18 +84,21 @@ converse.plugins.add('converse-vcard', {
         // We don't load all vCards when right menu is hidden.
         api.listen.on('chatRoomInitialized', (m) => {
             setVCardOnModel(m)
+
+            // loadAll: when in readonly mode (ie: OBS integration), always load all avatars.
+            const loadAll = api.settings.get('livechat_load_all_vcards') === true
             let hidden_occupants = m.get('hidden_occupants')
-            if (hidden_occupants !== true) {
+            if (hidden_occupants !== true || loadAll) {
                 m.occupants.forEach(setVCardOnOccupant);
             }
             m.listenTo(m.occupants, 'add', (occupant) => {
-                if (hidden_occupants !== true) {
+                if (hidden_occupants !== true || loadAll) {
                     setVCardOnOccupant(occupant)
                 }
             });
             m.on('change:hidden_occupants', () => {
                 hidden_occupants = m.get('hidden_occupants')
-                if (hidden_occupants !== true) {
+                if (hidden_occupants !== true || loadAll) {
                     m.occupants.forEach(setVCardOnOccupant);
                 }
             })
