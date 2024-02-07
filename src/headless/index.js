@@ -1,6 +1,8 @@
 /* START: Removable components
  * --------------------
  * Any of the following components may be removed if they're not needed.
+ *
+ * Comments line were removed for the peertube-plugin-livechat.
  */
 import "./plugins/bookmarks/index.js";  // XEP-0199 XMPP Ping
 import "./plugins/bosh.js";             // XEP-0206 BOSH
@@ -13,7 +15,7 @@ import "./plugins/headlines/index.js";  // Support for headline messages
 import "./plugins/mam/index.js";        // XEP-0313 Message Archive Management
 import "./plugins/muc/index.js";        // XEP-0045 Multi-user chat
 import "./plugins/ping/index.js";       // XEP-0199 XMPP Ping
-import "./plugins/pubsub.js";           // XEP-0060 Pubsub
+// import "./plugins/pubsub.js";           // XEP-0060 Pubsub
 import "./plugins/roster/index.js";     // RFC-6121 Contacts Roster
 import "./plugins/smacks/index.js";     // XEP-0198 Stream Management
 import "./plugins/status/index.js";

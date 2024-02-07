@@ -16,6 +16,8 @@ import 'shared/styles/index.scss';
 /* START: Removable plugins
  * ------------------------
  * Any of the following plugin imports may be removed if the plugin is not needed
+ * 
+ * Comments line were removed for the peertube-plugin-livechat.
  */
 import "./plugins/modal/index.js";
 import "./plugins/adhoc-views/index.js";    // Views for XEP-0050 Ad-Hoc commands
@@ -25,17 +27,17 @@ import "./plugins/controlbox/index.js";     // The control box
 import "./plugins/headlines-view/index.js";
 import "./plugins/mam-views/index.js";
 import "./plugins/muc-views/index.js";      // Views related to MUC
-import "./plugins/minimize/index.js";       // Allows chat boxes to be minimized
-import "./plugins/notifications/index.js";
-import "./plugins/profile/index.js";
-import "./plugins/omemo/index.js";
-import "./plugins/push/index.js";           // XEP-0357 Push Notifications
+// import "./plugins/minimize/index.js";       // Allows chat boxes to be minimized
+// import "./plugins/notifications/index.js";
+// import "./plugins/profile/index.js";
+// import "./plugins/omemo/index.js";
+// import "./plugins/push/index.js";           // XEP-0357 Push Notifications
 import "./plugins/register/index.js";       // XEP-0077 In-band registration
-import "./plugins/roomslist/index.js";      // Show currently open chat rooms
+// import "./plugins/roomslist/index.js";      // Show currently open chat rooms
 import "./plugins/rootview/index.js";
 import "./plugins/rosterview/index.js";
 import "./plugins/singleton/index.js";
-import "./plugins/dragresize/index.js";     // Allows chat boxes to be resized by dragging them
+// import "./plugins/dragresize/index.js";     // Allows chat boxes to be resized by dragging them
 import "./plugins/fullscreen/index.js";
 /* END: Removable components */
 
