@@ -10,6 +10,7 @@
 ## Other changes used by peertube-plugin-livechat, that will not be barckported.
 
 - Don't load vCards for all room occupants when the right menu is closed
+- Changing the default avatar, for something very light (to mitigate blinking effect when vCards are loaded)
 
 ## 10.1.6 (2023-08-31)
 

@@ -25,8 +25,14 @@ export const FAILURE = 'failure';
 
 // Generated from css/images/user.svg
 export const DEFAULT_IMAGE_TYPE = 'image/svg+xml';
+// This is a customization for peertube-plugin-livechat: using a light default avatar, to mitigate blinking effect on avatar loading.
+// The above DEFAULT_IMAGE is the base64 for:
+/*
+    <?xml version="1.0"?>
+    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><circle cx="64" cy="41" r="24" fill="#aaa" fill-opacity="0.2"/><path d="m28.5 112 v-12 c0-12 10-24 24-24 h23 c14 0 24 12 24 24 v12" fill="#aaa" fill-opacity="0.2"/></svg>
+*/
 export const DEFAULT_IMAGE =
-    'PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+CiA8cmVjdCB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgZmlsbD0iIzU1NSIvPgogPGNpcmNsZSBjeD0iNjQiIGN5PSI0MSIgcj0iMjQiIGZpbGw9IiNmZmYiLz4KIDxwYXRoIGQ9Im0yOC41IDExMiB2LTEyIGMwLTEyIDEwLTI0IDI0LTI0IGgyMyBjMTQgMCAyNCAxMiAyNCAyNCB2MTIiIGZpbGw9IiNmZmYiLz4KPC9zdmc+Cg==';
+    'PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+PGNpcmNsZSBjeD0iNjQiIGN5PSI0MSIgcj0iMjQiIGZpbGw9IiNhYWEiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PHBhdGggZD0ibTI4LjUgMTEyIHYtMTIgYzAtMTIgMTAtMjQgMjQtMjQgaDIzIGMxNCAwIDI0IDEyIDI0IDI0IHYxMiIgZmlsbD0iI2FhYSIgZmlsbC1vcGFjaXR5PSIwLjIiLz48L3N2Zz4=';
 
 // XEP-0085 Chat states
 // https =//xmpp.org/extensions/xep-0085.html
