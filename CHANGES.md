@@ -7,6 +7,7 @@
 - Fix: refresh the MUC sidebar when participants collection is sorted
 - Fix: MUC occupant list does not sort itself on nicknames or roles changes
 - #3307: Fix inconsistency between browsers on textarea outlines
+- Fix: room information not correctly refreshed when modifications are made by other users
 
 ## Other changes used by peertube-plugin-livechat, that will not be barckported.
 
