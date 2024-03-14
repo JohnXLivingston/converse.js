@@ -19,7 +19,7 @@ export function colorize (s) {
   // Treat the output as little endian and extract the least-significant 16 bits.
   // (These are the first two bytes of the output, with the second byte being the most significant one.)
   // Divide the value by 65536 (use float division) and multiply it by 360 (to map it to degrees in a full circle).
-  const angle = (((digest[0] & 0xFF) + ((digest[1]) & 0xFF) * 256) / 65536.0) * 360;
+  const angle = ((digest[0] + (digest[1] * 256)) / 65536.0) * 360;
 
   // Convert HSLuv angle to RGB Hex notation
   const hsluv = new Hsluv();
