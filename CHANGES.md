@@ -8,6 +8,7 @@
 - Fix: MUC occupant list does not sort itself on nicknames or roles changes
 - #3307: Fix inconsistency between browsers on textarea outlines
 - Fix: room information not correctly refreshed when modifications are made by other users
+- New config option [colorize_username](https://conversejs.org/docs/html/configuration.html#colorize_username)
 
 ## Other changes used by peertube-plugin-livechat, that will not be barckported.
 
