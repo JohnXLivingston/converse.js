@@ -7,6 +7,7 @@ import { _converse, api, converse } from '../../core.js';
 import { getAffiliationList } from './affiliations/utils.js';
 import { getAutoFetchedAffiliationLists } from './utils.js';
 import { getUniqueId } from '@converse/headless/utils/core.js';
+import { colorize } from 'utils/color';
 
 const { u } = converse.env;
 
@@ -22,6 +23,14 @@ class ChatRoomOccupants extends Collection {
 
     initialize() {
         this.on('change:nick', () => this.sort());
+        if (api.settings.get('colorize_username')) {
+            const updateColor = async (occupant) => {
+                const color = await colorize(occupant.get('nick'));
+                occupant.save('color', color);
+            };
+            this.on('add', updateColor);
+            this.on('change:nick', updateColor);
+        }
         this.on('change:role', () => this.sort());
     }
 

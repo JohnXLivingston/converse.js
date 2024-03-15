@@ -1,10 +1,7 @@
 import { PRETTY_CHAT_STATUS } from '../constants.js';
 import { __ } from 'i18n';
 import { html } from "lit";
-import { until } from 'lit/directives/until.js';
 import { showOccupantModal } from '../utils.js';
-import { colorize } from 'utils/color';
-import { api } from  '@converse/headless/core';
 
 const i18n_occupant_hint = (o) => __('Click to mention %1$s in your message.', o.get('nick'))
 
@@ -49,9 +46,8 @@ export default (o, chat) => {
         [classes, color] = ['fa fa-circle', 'subdued-color'];
     }
 
-    const occupant_style = api.settings.get('colorize_username') ?
-        colorize(o.getDisplayName()).then(color => 'color: ' + color + ' !important;', () => '')
-        : '';
+    const occupant_color = o.getColor();
+    const occupant_style = color ? 'color: ' + occupant_color + ' !important;' : '';
 
     return html`
         <li class="occupant" id="${o.id}" title="${occupant_title(o)}">
@@ -72,7 +68,7 @@ export default (o, chat) => {
                     </a>
                 </div>
                 <div class="col occupant-nick-badge">
-                    <span class="occupant-nick" @click=${chat.onOccupantClicked} style="${ until(occupant_style) }">${o.getDisplayName()}</span>
+                    <span class="occupant-nick" @click=${chat.onOccupantClicked} style="${occupant_style}">${o.getDisplayName()}</span>
                     <span class="occupant-badges">
                         ${ (affiliation === "owner") ? html`<span class="badge badge-groupchat">${i18n_owner}</span>` : '' }
                         ${ (affiliation === "admin") ? html`<span class="badge badge-info">${i18n_admin}</span>` : '' }

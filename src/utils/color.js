@@ -1,5 +1,6 @@
+import { Hsluv } from 'hsluv';
+
 const cache = new Map()
-let Hsluv
 
 /**
  * Computes an RGB color as specified in XEP-0392
@@ -11,10 +12,6 @@ export async function colorize (s) {
   // We cache results in `cache`, to avoid unecessary computing (as it can be called very often)
   const v = cache.get(s);
   if (v) return v;
-
-  if (!Hsluv) {
-    Hsluv = (await import(/*webpackChunkName: "hsluv" */ 'hsluv')).Hsluv;
-  }
 
   // Run the input through SHA-1
   const digest = Array.from(

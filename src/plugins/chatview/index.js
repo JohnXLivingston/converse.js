@@ -37,7 +37,6 @@ converse.plugins.add('converse-chatview', {
             'allowed_image_domains': null,
             'allowed_video_domains': null,
             'auto_focus': true,
-            'colorize_username': false,
             'debounced_content_rendering': true,
             'filter_url_query_params': null,
             'image_urls_regex': null,
