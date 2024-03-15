@@ -7,6 +7,7 @@ const cache = new Map()
  * https://xmpp.org/extensions/xep-0392.html
  *
  * @param {string} s JID or nickname to colorize
+ * @returns {Promise<string>}
  */
 export async function colorize (s) {
   // We cache results in `cache`, to avoid unecessary computing (as it can be called very often)

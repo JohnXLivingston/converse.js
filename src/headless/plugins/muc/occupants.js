@@ -7,7 +7,7 @@ import { _converse, api, converse } from '../../core.js';
 import { getAffiliationList } from './affiliations/utils.js';
 import { getAutoFetchedAffiliationLists } from './utils.js';
 import { getUniqueId } from '@converse/headless/utils/core.js';
-import { colorize } from 'utils/color';
+import { colorize } from '../../utils/color';
 
 const { u } = converse.env;
 
