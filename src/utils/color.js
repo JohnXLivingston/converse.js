@@ -1,7 +1,5 @@
-import { sha1 } from 'js-sha1';
-import { Hsluv } from 'hsluv';
-
 const cache = new Map()
+let Hsluv
 
 /**
  * Computes an RGB color as specified in XEP-0392
@@ -9,13 +7,24 @@ const cache = new Map()
  *
  * @param {string} s JID or nickname to colorize
  */
-export function colorize (s) {
+export async function colorize (s) {
   // We cache results in `cache`, to avoid unecessary computing (as it can be called very often)
   const v = cache.get(s);
   if (v) return v;
 
+  if (!Hsluv) {
+    Hsluv = (await import(/*webpackChunkName: "hsluv" */ 'hsluv')).Hsluv;
+  }
+
   // Run the input through SHA-1
-  const digest = sha1.digest(s);
+  const digest = Array.from(
+    new Uint8Array(
+      await crypto.subtle.digest('SHA-1',
+        new TextEncoder().encode(s)
+      )
+    )
+  );
+
   // Treat the output as little endian and extract the least-significant 16 bits.
   // (These are the first two bytes of the output, with the second byte being the most significant one.)
   // Divide the value by 65536 (use float division) and multiply it by 360 (to map it to degrees in a full circle).
