@@ -15,6 +15,27 @@ converse.emojis = {
 };
 
 
+/**
+ * The emoji.json file uses path starting with '/dist' for custom emojis.
+ * But if the assets_path settings is not the default one, these paths are wrong.
+ * This functions fixes this.
+ * @param json
+ */
+function fixCustomEmojisPath (json) {
+    let path = api.settings.get('assets_path')
+    if (path[path.length - 1] !== '/') { path = path + '/' }
+    if (path === '/dist/') {
+        return;
+    }
+    if (!('custom' in json) || (typeof json.custom !== 'object')) {
+        return;
+    }
+    for (const e of Object.values(json.custom)) {
+        if (typeof e.url !== 'string') { continue; }
+        e.url = e.url.replace(/^\/dist\//, path);
+    }
+}
+
 converse.plugins.add('converse-emoji', {
 
     initialize () {
@@ -110,6 +131,7 @@ converse.plugins.add('converse-emoji', {
                          *  });
                          */
                         const json = await api.hook('loadEmojis', {}, module.default);
+                        fixCustomEmojisPath(json);
                         converse.emojis.json = json;
 
                         converse.emojis.by_sn = Object.keys(json).reduce((result, cat) => Object.assign(result, json[cat]), {});

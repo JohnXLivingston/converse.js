@@ -10,6 +10,7 @@
 - Fix: room information not correctly refreshed when modifications are made by other users
 - New config option [colorize_username](https://conversejs.org/docs/html/configuration.html#colorize_username)
 - New loadEmojis hook, to customize emojis at runtime.
+- Fix custom emojis path when assets_path is not the default path.
 
 ## Other changes used by peertube-plugin-livechat, that will not be barckported.
 
