@@ -160,7 +160,7 @@ export type XFormCaptchaURI = {
 export type XFormListTypes = 'list-single' | 'list-multi';
 export type XFormJIDTypes = 'jid-single' | 'jid-multi';
 export type XFormTextTypes = 'text-multi' | 'text-private' | 'text-single';
-export type XFormFieldTypes = XFormListTypes | XFormJIDTypes | XFormTextTypes | 'fixed' | 'boolean' | 'url' | 'hidden';
+export type XFormFieldTypes = XFormListTypes | XFormJIDTypes | XFormTextTypes | 'fixed' | 'boolean' | 'url' | 'hidden' | 'date' | 'datetime';
 export type XFormField = {
     var: string;
     label: string;
