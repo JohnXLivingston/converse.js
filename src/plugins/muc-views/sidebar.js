@@ -42,10 +42,7 @@ export default class MUCSidebar extends CustomElement {
         this.listenTo(this.model, 'change', () => this.requestUpdate());
         this.listenTo(this.model.occupants, 'add', debouncedRequestUpdate);
         this.listenTo(this.model.occupants, 'remove', debouncedRequestUpdate);
-        this.listenTo(this.model.occupants, 'change', debouncedRequestUpdate);
         this.listenTo(this.model.occupants, 'sort', debouncedRequestUpdate);
-        this.listenTo(this.model.occupants, 'vcard:change', debouncedRequestUpdate);
-        this.listenTo(this.model.occupants, 'vcard:add', debouncedRequestUpdate);
         this.listenTo(this.model.features, 'change:open', () => this.requestUpdate());
 
         this.model.initialized.then(() => this.requestUpdate());
@@ -79,15 +76,6 @@ export default class MUCSidebar extends CustomElement {
     closeSidebar (ev) {
         ev?.preventDefault?.();
         u.safeSave(this.model, { 'hidden_occupants': true });
-    }
-
-    /** @param {MouseEvent} ev */
-    onOccupantClicked (ev) {
-        ev?.preventDefault?.();
-        const { chatboxviews } = _converse.state;
-        const view = chatboxviews.get(this.getAttribute('jid'));
-        const occ_el = /** @type {HTMLElement} */(ev.target);
-        view?.getMessageForm().insertIntoTextArea(`@${occ_el.textContent}`);
     }
 }
 

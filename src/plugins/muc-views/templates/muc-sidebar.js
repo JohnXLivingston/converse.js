@@ -3,11 +3,12 @@
  * @typedef {import('@converse/headless').MUCOccupant} MUCOccupant
  */
 import 'shared/components/list-filter.js';
-import tplOccupant from "./occupant.js";
 import tplOccupantsFilter from './occupants-filter.js';
 import { __ } from 'i18n';
 import { html } from "lit";
 import { repeat } from 'lit/directives/repeat.js';
+
+import '../sidebar-occupant.js';
 
 /**
  * @param {MUCSidebar} el
@@ -35,7 +36,9 @@ function isOccupantFiltered (el, occ) {
  * @param {Object} o
  */
 function shouldShowOccupant (el, occ, o) {
-    return isOccupantFiltered(el, occ) ? '' : tplOccupant(occ, o);
+    return isOccupantFiltered(el, occ)
+        ? ''
+        : html`<converse-muc-sidebar-occupant .model=${occ}></converse-muc-sidebar-occupant>`;
 }
 
 /**
