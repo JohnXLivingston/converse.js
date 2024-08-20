@@ -55,7 +55,7 @@ async function tplActionButtons (o) {
 
     const items = buttons.map(b => {
         return html`
-        <button class="dropdown-item ${b.button_class}" @click=${b.handler}>
+        <button class="dropdown-item ${b.button_class}" type="button" @click=${b.handler}>
             <converse-icon
                 class="${b.icon_class}"
                 color="var(--inverse-link-color)"

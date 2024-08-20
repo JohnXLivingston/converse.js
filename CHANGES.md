@@ -33,6 +33,7 @@
 - Fix: removing the "add to contact" button in occupant modal in singleton mode (as there is no roster).
 - #3476: better UI for form "fixed" fields
 - New "getOccupantActionButtons" hook, so that plugins can add actions on MUC occupants.
+- Improved accessibility.
 
 ### Breaking changes:
 
