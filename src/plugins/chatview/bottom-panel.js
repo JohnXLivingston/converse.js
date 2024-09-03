@@ -42,7 +42,7 @@ export default class ChatBottomPanel extends CustomElement {
     }
 
     sendButtonClicked (ev) {
-        if (ev.delegateTarget?.dataset.action === 'sendMessage') {
+        if (ev.target?.closest('[data-action=sendMessage]')) {
             const form = /** @type {MessageForm} */(this.querySelector('converse-message-form'));
             form?.onFormSubmitted(ev);
         }
